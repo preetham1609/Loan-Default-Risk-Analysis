@@ -2,6 +2,7 @@
 
 ## Table of Contents
 - [Project Overview](#project-overview)
+- [Data Source](#dataset-source)
 - [Business Problem](#business-problem)
 - [Project Objectives](#project-objectives)
 - [Dataset Overview](#dataset-overview)
@@ -23,6 +24,14 @@ This project analyzes historical loan data to identify patterns associated with 
 The analysis combines SQL, Python, and Power BI to examine borrower credit grades, debt-to-income (DTI) ratios, interest rates, loan amounts, and loan purposes.
 
 The goal is to translate historical loan data into actionable insights that can support portfolio monitoring and credit-risk assessment.
+
+## Dataset Source
+
+- **Source:** [Kaggle — Loan Default Prediction](https://www.kaggle.com/competitions/loan-default-pred)
+- **File used:** `loan_train.csv`
+- **Description:** Historical loan applicant and loan-status data used to analyze default patterns across credit grades, debt-to-income ratios, interest rates, loan amounts, and loan purposes.
+- **License:** Subject to Kaggle competition rules. Refer to the original competition page for applicable terms.
+- **Data availability:** The dataset is not included in this repository. Users must obtain it from the original source and comply with its applicable terms.
 
 ## Business Problem
 
@@ -88,7 +97,7 @@ The observed default rate is calculated as the number of defaulted loans divided
 6. Examined combined credit-grade and DTI segments.
 7. Calculated defaulted principal exposure by credit grade and loan purpose.
 8. Built a multi-page Power BI dashboard.
-9. Cross-checked overall portfolio metrics across SQL and Python.
+9. Cross-checked overall portfolio metrics between SQL and Python and verified that the Power BI dashboard reports the same key metrics.
 10. Prepared findings, limitations, and business recommendations.
 
 ## Key Performance Indicators
@@ -183,7 +192,7 @@ Loan-Default-Risk-Analysis/
    ```
 
 3. Ensure the CSV file is located in the `Data/` directory.
-4. Open `notebooks/loan_default_risk_analysis.ipynb`.
+4. Open `Notebook/loan_default_risk_analysis.ipynb`.
 5. Run the notebook cells in order.
 
 ### Power BI Dashboard
