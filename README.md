@@ -1,4 +1,3 @@
-
 # Loan Default Risk Analysis: Identifying Credit Risk & Defaulted Loan Exposure
 
 ## Table of Contents
