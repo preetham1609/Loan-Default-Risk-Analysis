@@ -203,7 +203,7 @@ Loan-Default-Risk-Analysis/
 3. Download `loan_train.csv` from the Kaggle competition page and place it in a `Data/` folder at the project root.
 4. Open `Notebook/loan_default_risk_analysis.ipynb` for the exploratory analysis.
 5. Open `Notebook/loan_default_statistical_analysis.ipynb` for the hypothesis tests.
-6. Run the cells in each notebook in order.
+6. Run the cells in each notebook in order.  
 
 ### Power BI Dashboard
 1. Open `Dashboard/loan_default_risk_analysis.pbix` in Power BI Desktop.
