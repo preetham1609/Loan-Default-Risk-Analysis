@@ -1,6 +1,6 @@
 # Loan Default Risk Analysis: Identifying Credit Risk & Defaulted Loan Exposure
 
-**TL;DR:** Analyzed 27,003 loans and found a 14.73% observed default rate, with defaulted loans making up 16.2% of total loan principal. Default risk varies by credit grade, DTI, and interest rate, and debt consolidation contributes the largest share of defaulted principal.
+   **TL;DR:** Analyzed 27,003 loans and found a 14.73% observed default rate. Default rates rise from 6.11% (Grade A) to 34.25% (Grade G), and hypothesis tests (chi-square, two-proportion z-test; p < 0.001) confirm that credit grade and interest rate are significantly associated with default.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -90,6 +90,7 @@ The observed default rate is calculated as the number of defaulted loans divided
 - **Power BI:** Interactive dashboard development and KPI reporting.
 - **Jupyter Notebook:** Documenting and executing Python analysis.
 - **Git and GitHub:** Version control and project documentation.
+- **SciPy and statsmodels:** Hypothesis testing and confidence intervals
 
 ## Project Workflow
 
@@ -121,11 +122,12 @@ The observed default rate is calculated as the number of defaulted loans divided
 - **Credit grade:** Observed default rates increased from 6.11% for Grade A to 34.25% for Grade G, a difference of 28.14 percentage points.
 - **DTI:** Default rates increased from approximately 12.82% in the Low DTI band to 17.27% in the High DTI band. The pattern varied across credit grades.
 - **Interest rate:** Loans with interest rates below 12% had a 9.16% default rate, compared with 21.19% for loans at or above 12%—a difference of 12.03 percentage points.
-- **Loan amount:** The Very High loan amount band (₹/$ currency not confirmed) had the highest observed default rate at 19.37%, compared with 13.00% in the Medium band.
-- **Loan purpose:** Debt consolidation contributed the largest defaulted principal exposure among loan purposes. Add its exact principal amount once verified.
-- **Combined segmentation:** Analyzing credit grade and DTI together revealed differences in observed default rates across borrower segments. Include the highest-risk segment and its rate from the heatmap if available.
+- **Loan amount:** The Very High loan amount band had the highest observed default rate at 19.37%, compared with 13.00% in the Medium band.
+- **Loan purpose:** Debt consolidation contributed the largest defaulted principal exposure among loan purposes. 
+- **Combined segmentation:** Analyzing credit grade and DTI together revealed differences in observed default rates across borrower segments.
+- **Statistical testing:** A chi-square test showed credit grade is significantly associated with default (χ² = 1122.06,  df = 6, p < 0.001). A two-proportion z-test showed default rates of 9.16% (interest rate below 12%) vs 21.19% (12% or above), p < 0.001. The 95% confidence interval for the overall default rate is 14.31% to 15.16%.
 
-These findings describe observed historical associations and do not establish causation. The loan principal currency has not yet been confirmed.
+These findings describe observed historical associations and do not establish causation.
 
 ## Power BI Dashboard
 
@@ -167,7 +169,8 @@ Loan-Default-Risk-Analysis/
 │   └── loan_risk_exposure.png
 │
 ├── Notebook/
-│   └── loan_default_risk_analysis.ipynb
+│   ├── loan_default_risk_analysis.ipynb
+    └── loan_default_statistical_analysis.ipynb
 │
 ├── SQL/
 │   └── loan_default_analysis.sql
@@ -176,6 +179,8 @@ Loan-Default-Risk-Analysis/
 │   └── loan_default_risk_analysis.pbix
 │
 ├── .gitignore
+├── .gitattributes
+├── requirements.txt
 └── README.md
 ```
 
@@ -192,7 +197,7 @@ Loan-Default-Risk-Analysis/
 2. Install the required libraries:
 
    ```bash
-   pip install pandas numpy matplotlib
+   pip install pandas numpy matplotlib scipy statsmodels
    ```
 
 3. Ensure the CSV file is located in the `Data/` directory.
@@ -215,7 +220,6 @@ Loan-Default-Risk-Analysis/
 
 ## Future Improvements
 
-- Conduct statistical hypothesis tests to assess differences between risk segments.
 - Explore logistic regression or other predictive methods for default-risk estimation.
 - Evaluate model performance using appropriate validation methods.
 - Investigate additional borrower characteristics and repayment behavior.
