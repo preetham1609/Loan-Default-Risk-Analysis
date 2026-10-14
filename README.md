@@ -1,5 +1,7 @@
 # Loan Default Risk Analysis: Identifying Credit Risk & Defaulted Loan Exposure
 
+**TL;DR:** Analyzed 27,003 loans and found a 14.73% observed default rate, with defaulted loans making up 16.2% of total loan principal. Default risk varies by credit grade, DTI, and interest rate, and debt consolidation contributes the largest share of defaulted principal.
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Data Source](#dataset-source)
@@ -70,6 +72,8 @@ The project uses a loan dataset containing **27,003 records and 47 columns**.
 | Total original loan principal | 299,407,825 |
 | Original principal associated with defaulted loans | 48,489,975 |
 
+*Note: The source dataset does not specify a currency, so principal amounts are shown in the dataset's native units.*
+
 ### Target Variable
 
 - `loan_status = 0`: Non-defaulted loan.
@@ -113,15 +117,15 @@ The observed default rate is calculated as the number of defaulted loans divided
 
 ## Key Findings
 
-- **Overall portfolio:** 27,003 loans are represented in the dataset, with 3,977 classified as defaults and an observed default rate of 14.73%.
-- **Credit grade:** Observed default rates generally increase toward lower credit grades.
-- **DTI:** Higher DTI bands show higher observed default rates overall, although the pattern varies across credit grades.
-- **Interest rate:** Higher interest-rate bands exhibit higher observed default rates in the analyzed dataset.
-- **Loan amount:** The Very High loan amount band has the highest observed default rate among the four loan amount bands.
-- **Loan purpose:** Debt consolidation contributes the largest defaulted principal exposure among loan purposes.
-- **Combined segmentation:** Examining credit grade and DTI together reveals differences in observed default rates that may not be apparent when analyzing each factor separately.
+- **Overall portfolio:** Analyzed 27,003 loans, including 3,977 defaults, resulting in an observed default rate of 14.73%.
+- **Credit grade:** Observed default rates increased from 6.11% for Grade A to 34.25% for Grade G, a difference of 28.14 percentage points.
+- **DTI:** Default rates increased from approximately 12.82% in the Low DTI band to 17.27% in the High DTI band. The pattern varied across credit grades.
+- **Interest rate:** Loans with interest rates below 12% had a 9.16% default rate, compared with 21.19% for loans at or above 12%—a difference of 12.03 percentage points.
+- **Loan amount:** The Very High loan amount band (₹/$ currency not confirmed) had the highest observed default rate at 19.37%, compared with 13.00% in the Medium band.
+- **Loan purpose:** Debt consolidation contributed the largest defaulted principal exposure among loan purposes. Add its exact principal amount once verified.
+- **Combined segmentation:** Analyzing credit grade and DTI together revealed differences in observed default rates across borrower segments. Include the highest-risk segment and its rate from the heatmap if available.
 
-These findings describe observed historical associations and do not establish causation.
+These findings describe observed historical associations and do not establish causation. The loan principal currency has not yet been confirmed.
 
 ## Power BI Dashboard
 
@@ -156,7 +160,7 @@ These recommendations are analytical suggestions, not proof that changing a part
 Loan-Default-Risk-Analysis/
 │
 ├── Data/
-│   └── loan_train.csv
+│   └── loan_train.csv  (not included; download from Kaggle)
 │
 ├── Images/
 │   ├── loan_risk_overview.png
