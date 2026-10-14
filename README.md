@@ -180,7 +180,7 @@ Loan-Default-Risk-Analysis/
 │
 ├── .gitignore
 ├── .gitattributes
-├── requirements.txt
+├── requirements.txt 
 └── README.md
 ```
 
@@ -197,12 +197,13 @@ Loan-Default-Risk-Analysis/
 2. Install the required libraries:
 
    ```bash
-   pip install pandas numpy matplotlib scipy statsmodels
+   pip install -r requirements.txt
    ```
 
-3. Ensure the CSV file is located in the `Data/` directory.
-4. Open `Notebook/loan_default_risk_analysis.ipynb`.
-5. Run the notebook cells in order.
+3. Download `loan_train.csv` from the Kaggle competition page and place it in a `Data/` folder at the project root.
+4. Open `Notebook/loan_default_risk_analysis.ipynb` for the exploratory analysis.
+5. Open `Notebook/loan_default_statistical_analysis.ipynb` for the hypothesis tests.
+6. Run the cells in each notebook in order.
 
 ### Power BI Dashboard
 1. Open `Dashboard/loan_default_risk_analysis.pbix` in Power BI Desktop.
